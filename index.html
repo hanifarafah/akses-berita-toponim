@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Akses Berita Nama Rupabumi</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="responsive_stylesheet.css">
+  <link rel="icon" href="https://image.flaticon.com/icons/png/512/2799/2799780.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="kelasToponim.js"></script>
+</head>
+<body>
+  <div class="form">
+    <div class="judul">
+      <h1>Akses Berita Nama Rupabumi</h1>
+    </div>
+    <div class="form-child">
+      <div class="klasifikasi-toponim">
+        <label for="klasifikasi-toponim">Klasifikasi Toponim</label>
+        <select name="klasifikasi_toponim" id="klasifikasi-toponim">
+          <option value="" selected="selected">Klasifikasi Toponim</option>
+        </select>
+      </div>
+      <div class="nama-unsur">
+        <label for="nama_unsur">Nama Unsur</label>
+        <select name="nama_unsur" id="nama-unsur">
+          <option value="" selected="selected">Nama Unsur</option>
+        </select>
+      </div>
+      <div class="submit">
+        <button type="submit" id="submit-google"><span class="fa fa-google"></span>Cari di Google</button>
+        <button type="submit" id="submit-youtube"><span class="fa fa-youtube"></span>Cari di YouTube</button>
+        <button type="submit" id="submit-facebook"><span class="fa fa-facebook"></span>Cari di Facebook</button>
+        <button type="submit" id="submit-instagram"><span class="fa fa-instagram"></span>Cari di Instagram</button>
+        <button type="submit" id="submit-twitter"><span class="fa fa-twitter"></span>Cari di Twitter</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("submit-google").onclick = function() {goToGoogle()};
+    document.getElementById("submit-youtube").onclick = function() {goToYouTube()};
+    document.getElementById("submit-facebook").onclick = function() {goToFacebook()};
+    document.getElementById("submit-instagram").onclick = function() {goToInstagram()};
+    document.getElementById("submit-twitter").onclick = function() {goToTwitter()};
+    
+    function goToGoogle() {
+        var getClassification = document.getElementById("klasifikasi-toponim").value;
+        var replaceSpaceClassification = getClassification.replace(" ", "+");
+        var getElement = document.getElementById("nama-unsur").value;
+        var replaceSpaceElement = getElement.replace(" ", "+");
+        if (getClassification === "" && getElement === "") {
+          alert("Pilih kelas toponim dan/atau nama unsur!");
+        } else if (getElement === "") {
+          var dynamicLink =  '"' + replaceSpaceClassification + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.google.com/search?q=" + encodeDynamicLink + "&tbm=nws");
+        } else {
+          var dynamicLink = '"' + replaceSpaceClassification + '"' + " OR " + '"' + "Nama " + replaceSpaceElement + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.google.com/search?q=" + encodeDynamicLink + "&tbm=nws");
+        }
+    };
+
+    function goToYouTube() {
+        var getClassification = document.getElementById("klasifikasi-toponim").value;
+        var replaceSpaceClassification = getClassification.replace(" ", "+");
+        var getElement = document.getElementById("nama-unsur").value;
+        var replaceSpaceElement = getElement.replace(" ", "+");
+        if (getClassification === "" && getElement === "") {
+          alert("Pilih kelas toponim dan/atau nama unsur!");  
+        } else if (getElement === "") {
+          var dynamicLink =  '"' + replaceSpaceClassification + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);  
+        } else {
+          var dynamicLink =  '"' + replaceSpaceClassification + '"' + " OR " + '"' + "Nama " + replaceSpaceElement + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);
+        }
+    };
+
+    function goToFacebook() {
+        var getClassification = document.getElementById("klasifikasi-toponim").value;
+        var getElement = document.getElementById("nama-unsur").value;
+        if (getClassification === "" && getElement === "") {
+          alert("Pilih kelas toponim dan/atau nama unsur!");  
+        } else if (getElement === "") {
+          var dynamicLink =  '"' + getClassification + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink, "&epa=FILTERS&filters=e30");  
+        } else {
+          var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink, "&epa=FILTERS&filters=e30");
+        }
+    };
+
+    function goToInstagram() {
+        var getClassification = document.getElementById("klasifikasi-toponim").value;
+        var getElement = document.getElementById("nama-unsur").value;
+        var dynamicLink =  "nama" + getElement.toLowerCase().replace(/\s+/g, "") + "/";
+        if (getClassification === "" && getElement === "") {
+          alert("Pilih kelas toponim dan/atau nama unsur!");
+        } else if (getElement === "") {
+          alert("Pilih nama unsur!")
+        } else {
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://www.instagram.com/explore/tags/" + encodeDynamicLink);
+        }
+    };
+
+    function goToTwitter() {
+        var getClassification = document.getElementById("klasifikasi-toponim").value;
+        var getElement = document.getElementById("nama-unsur").value;
+        if (getClassification === "" && getElement === "") {
+          alert("Pilih kelas toponim dan/atau nama unsur!");
+        } else if (getElement === "") {
+          var dynamicLink =  '"' + getClassification + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");  
+        } else {
+          var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"';
+          var encodeDynamicLink =  encodeURI(dynamicLink);
+          window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
+        }
+    };
+  </script>
+</body>
+</html>

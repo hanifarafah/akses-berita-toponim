@@ -1,0 +1,85 @@
+body {
+    background-image: url(https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+    background-size: cover;
+}
+
+.form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-align: center;
+    background: white;
+}
+
+.judul {
+    padding: 30px;
+}
+
+.form-child {
+    padding: 10px;
+}
+
+.klasifikasi-toponim, .nama-unsur {
+    margin: 15px 0;
+}
+
+#klasifikasi-toponim, #nama-unsur {
+    width: 320px;
+    height: 36px;
+}
+
+label {
+    width: 150px;
+    text-align: left;
+    margin-right: 20px;
+    font-size: 17px;
+}
+
+.submit {
+    display: flex;
+}
+
+.submit > button[type=submit] {
+    flex-direction: row;
+    margin: 10px 5px;
+    border: none;
+    width: 200px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    color: white;
+    opacity: 0.8;
+}
+
+.submit > button[type=submit]:hover {
+    opacity: 1;
+}
+
+.fa {
+    margin-right: 10px;
+}
+
+#submit-google {
+    background-color: #0F9D58;
+}
+
+#submit-youtube {
+    background-color: #FF0000;
+}
+
+#submit-facebook {
+    background-color: #4267B2;
+}
+
+#submit-instagram {
+    background-color: #833AB4;
+}
+
+#submit-twitter {
+    background-color: #1DA1F2;
+}

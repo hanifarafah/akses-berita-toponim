@@ -1,0 +1,37 @@
+/* Untuk tablet */
+@media all and (max-width: 1000px) {
+    .submit {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 920px) {
+    label {
+        text-align: center;
+    }
+
+    .submit > button[type=submit] {
+        width: 100%;
+    }
+}
+
+/* Untuk smartphone */
+@media all and (max-width: 670px) {
+    .judul > h1 {
+        font-size: 32px;
+    }
+
+    label {
+        text-align: center;
+    }
+
+    .submit {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .submit > button[type=submit] {
+        width: 100%;
+    }    
+}
