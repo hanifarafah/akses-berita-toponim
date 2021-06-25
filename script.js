@@ -13,12 +13,10 @@ function goToGoogle() {
         alert("Pilih kelas toponim dan/atau nama unsur!");
     } else if (getElement === "") {
         var dynamicLink =  '"' + replaceSpaceClassification + '"';
-        var encodeDynamicLink =  encodeURI(dynamicLink);
-        window.open("https://www.google.com/search?q=" + encodeDynamicLink + "&tbm=nws");
+        window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
     } else {
-        var dynamicLink = '"' + replaceSpaceClassification + '"' + " OR " + '"' + "Nama " + replaceSpaceElement + '"';
-        var encodeDynamicLink =  encodeURI(dynamicLink);
-        window.open("https://www.google.com/search?q=" + encodeDynamicLink + "&tbm=nws");
+        var dynamicLink = '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"';
+        window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
     }
 };
 
