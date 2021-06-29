@@ -32,7 +32,7 @@ function goToYouTube() {
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);  
     } else {
-        var dynamicLink =  '"' + replaceSpaceClassification + '"' + " OR " + '"' + "Nama " + replaceSpaceElement + '"';
+        var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);
     }
