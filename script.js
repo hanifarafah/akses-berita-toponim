@@ -18,6 +18,9 @@ function goToGoogle() {
     } else if (getClassification !== "" && getElement !== "" && getSpecific === "") {
         var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"';
         window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
+    } else if (getClassification !== "" && getElement === "" && getSpecific === "") {
+        var dynamicLink = '"' + replaceSpaceClassification + '"';
+        window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
     } else {
         var dynamicLink = '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"' + "+OR+" + '"' + getSpecific + '"';
         window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
@@ -40,6 +43,10 @@ function goToYouTube() {
         var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"' ;
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);
+    } else if (getClassification !== "" && getElement === "" && getSpecific === "") {
+        var dynamicLink = '"' + replaceSpaceClassification + '"';
+        var encodeDynamicLink = encodeURI(dynamicLink);
+        window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);
     } else {
         var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"' + "+OR+" + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
@@ -59,6 +66,10 @@ function goToFacebook() {
         window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink + "&epa=FILTERS&filters=e30");  
     } else if (getClassification !== "" && getElement !== "" && getSpecific === "") {
         var dynamicLink = '"' + getClassification + '"' + " OR " + '"' + getElement + '"';
+        var encodeDynamicLink = encodeURI(dynamicLink);
+        window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink + "&epa=FILTERS&filters=e30");
+    } else if (getClassification !== "" && getElement === "" && getSpecific === "") {
+        var dynamicLink = '"' + getClassification + '"';
         var encodeDynamicLink = encodeURI(dynamicLink);
         window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink + "&epa=FILTERS&filters=e30");
     } else {
@@ -94,6 +105,10 @@ function goToTwitter() {
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");  
     } else if (getClassification !== "" && getElement !== "" && getSpecific === "") {
         var dynamicLink = '"' + getClassification + '"' + " OR " + '"' + getElement + '"';
+        var encodeDynamicLink = encodeURI(dynamicLink);
+        window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
+    } else if (getClassification !== "" && getElement === "" && getSpecific === "") {
+        var dynamicLink = '"' + getClassification + '"';
         var encodeDynamicLink = encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
     } else {
