@@ -31,6 +31,7 @@ window.onload = function() {
     }
 
     kelasToponim.onchange = function() {
+      document.getElementById("nama-spesifik").disabled = false;
       namaUnsur.length = 1;
       var y = kelasUnsur[this.value];
       for (var i = 0; i < y.length; i++) {
