@@ -25,11 +25,11 @@ body {
     padding: 10px;
 }
 
-.klasifikasi-toponim, .nama-unsur {
+.klasifikasi-toponim, .nama-unsur, .nama-spesifik {
     margin: 15px 0;
 }
 
-#klasifikasi-toponim, #nama-unsur {
+#klasifikasi-toponim, #nama-unsur, #nama-spesifik {
     width: 320px;
     height: 36px;
 }

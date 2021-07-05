@@ -9,13 +9,14 @@ function goToGoogle() {
     var replaceSpaceClassification = getClassification.replace(" ", "+");
     var getElement = document.getElementById("nama-unsur").value;
     var replaceSpaceElement = getElement.replace(" ", "+");
+    var getSpecific = document.getElementById("nama-spesifik").value;
     if (getClassification === "" && getElement === "") {
         alert("Pilih kelas toponim dan/atau nama unsur!");
     } else if (getElement === "") {
-        var dynamicLink =  '"' + replaceSpaceClassification + '"';
+        var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + getSpecific + '"';
         window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
     } else {
-        var dynamicLink = '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"';
+        var dynamicLink = '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"' + "+OR+" + '"' + getSpecific + '"';
         window.open("https://www.google.com/search?q=" + dynamicLink + "&tbm=nws");
     }
 };
@@ -25,14 +26,15 @@ function goToYouTube() {
     var replaceSpaceClassification = getClassification.replace(" ", "+");
     var getElement = document.getElementById("nama-unsur").value;
     var replaceSpaceElement = getElement.replace(" ", "+");
+    var getSpecific = document.getElementById("nama-spesifik").value;
     if (getClassification === "" && getElement === "") {
         alert("Pilih kelas toponim dan/atau nama unsur!");  
     } else if (getElement === "") {
-        var dynamicLink =  '"' + replaceSpaceClassification + '"';
+        var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);  
     } else {
-        var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"';
+        var dynamicLink =  '"' + replaceSpaceClassification + '"' + "+OR+" + '"' + "Nama+" + replaceSpaceElement + '"' + "+OR+" + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.youtube.com/results?search_query=" + encodeDynamicLink);
     }
@@ -41,14 +43,15 @@ function goToYouTube() {
 function goToFacebook() {
     var getClassification = document.getElementById("klasifikasi-toponim").value;
     var getElement = document.getElementById("nama-unsur").value;
+    var getSpecific = document.getElementById("nama-spesifik").value;
     if (getClassification === "" && getElement === "") {
         alert("Pilih kelas toponim dan/atau nama unsur!");  
     } else if (getElement === "") {
-        var dynamicLink =  '"' + getClassification + '"';
+        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink, "&epa=FILTERS&filters=e30");  
     } else {
-        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"';
+        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"' + " OR " + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://www.facebook.com/search/posts/?q=" + encodeDynamicLink, "&epa=FILTERS&filters=e30");
     }
@@ -71,14 +74,15 @@ function goToInstagram() {
 function goToTwitter() {
     var getClassification = document.getElementById("klasifikasi-toponim").value;
     var getElement = document.getElementById("nama-unsur").value;
+    var getSpecific = document.getElementById("nama-spesifik").value;
     if (getClassification === "" && getElement === "") {
         alert("Pilih kelas toponim dan/atau nama unsur!");
     } else if (getElement === "") {
-        var dynamicLink =  '"' + getClassification + '"';
+        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");  
     } else {
-        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"';
+        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"' + " OR " + '"' + getSpecific + '"';
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
     }
