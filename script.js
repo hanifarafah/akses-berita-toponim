@@ -97,14 +97,16 @@ function goToTwitter() {
     var getClassification = document.getElementById("klasifikasi-toponim").value;
     var getElement = document.getElementById("nama-unsur").value;
     var getSpecific = document.getElementById("nama-spesifik").value;
+    var elementHastag =  "#nama" + getElement.toLowerCase().replace(/\s+/g, "");
+    var specificHastag =  "#nama" + getSpecific.toLowerCase().replace(/\s+/g, "");
     if (getClassification === "" && getElement === "") {
         alert("Pilih kelas toponim dan/atau nama unsur!");
     } else if (getClassification !== "" && getElement === "" && getSpecific !== "") {
-        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + getSpecific + '"';
+        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + getSpecific + '"' + " OR " + specificHastag;
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");  
     } else if (getClassification !== "" && getElement !== "" && getSpecific === "") {
-        var dynamicLink = '"' + getClassification + '"' + " OR " + '"' + getElement + '"';
+        var dynamicLink = '"' + getClassification + '"' + " OR " + '"' + getElement + '"' + " OR " + elementHastag;
         var encodeDynamicLink = encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
     } else if (getClassification !== "" && getElement === "" && getSpecific === "") {
@@ -112,7 +114,7 @@ function goToTwitter() {
         var encodeDynamicLink = encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
     } else {
-        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"' + " OR " + '"' + getSpecific + '"';
+        var dynamicLink =  '"' + getClassification + '"' + " OR " + '"' + "Nama " + getElement + '"' + " OR " + '"' + getSpecific + '"' + " OR " + '"' + specificHastag + " OR " + elementHastag;
         var encodeDynamicLink =  encodeURI(dynamicLink);
         window.open("https://twitter.com/search?q=" + encodeDynamicLink, "&src=typed_query");
     }
